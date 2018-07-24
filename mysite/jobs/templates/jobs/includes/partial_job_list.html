@@ -1,0 +1,26 @@
+{% for job in jobs %}
+  <tr>
+    <td>{{ job.id }}</td>
+    <td>{{ job.title }}</td>
+    <td>{{ job.job_desc }}</td>
+    <td>{{ job.vacancy_count }}</td>
+    <td>{{ job.job_status }}</td>
+    <td>{{ job.publication_date }}</td>
+    <td style="width: 150px">
+      <button type="button"
+              class="btn btn-warning btn-sm js-update-job"
+              data-url="{% url 'job_update' job.id %}">
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+      </button>
+      <button type="button"
+              class="btn btn-danger btn-sm js-delete-job"
+              data-url="{% url 'job_delete' job.id %}">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      </button>
+    </td>
+  </tr>
+{% empty %}
+  <tr>
+    <td colspan="8" class="text-center bg-warning">No Job</td>
+  </tr>
+{% endfor %}
