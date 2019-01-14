@@ -4,4 +4,4 @@ from django.apps import AppConfig
 
 
 class BooksConfig(AppConfig):
-    name = 'mysite.jobs'
+    name = "mysite.jobs"
